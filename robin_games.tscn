@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://wdramgiiq3be"]
+
+[ext_resource type="Texture2D" uid="uid://cufx7inp8whus" path="res://images/robin_games.png" id="1_sh7o2"]
+[ext_resource type="Script" path="res://Splash_AnimationPlayer.cs" id="2_jvblo"]
+
+[sub_resource type="Animation" id="Animation_f7prr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_7vypd"]
+resource_name = "flash"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6a8p1"]
+_data = {
+"RESET": SubResource("Animation_f7prr"),
+"flash": SubResource("Animation_7vypd")
+}
+
+[node name="RobinGames" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(240, 405)
+scale = Vector2(0.755556, 0.788889)
+texture = ExtResource("1_sh7o2")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6a8p1")
+}
+autoplay = "flash"
+script = ExtResource("2_jvblo")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="AnimationPlayer" method="_on_animation_finished"]

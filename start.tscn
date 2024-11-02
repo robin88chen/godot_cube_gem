@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b85ffsxu62oh5"]
+
+[ext_resource type="Texture2D" uid="uid://e4ygffamfx5f" path="res://images/indonov33.jpg" id="1_lfect"]
+
+[node name="Indonov33" type="Sprite2D"]
+position = Vector2(603, 589)
+scale = Vector2(0.289537, 0.302303)
+texture = ExtResource("1_lfect")

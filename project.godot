@@ -11,8 +11,22 @@ config_version=5
 [application]
 
 config/name="CubGem"
-config/features=PackedStringArray("4.3", "Mobile")
+run/main_scene="res://robin_games.tscn"
+config/features=PackedStringArray("4.3", "C#", "Mobile")
+boot_splash/bg_color=Color(0.12549, 0.12549, 0.12549, 1)
+boot_splash/show_image=false
+boot_splash/image="res://images/robin_games.png"
 config/icon="res://icon.svg"
+boot_splash/minimum_display_time=1000
+
+[display]
+
+window/size/viewport_width=480
+window/size/viewport_height=800
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+window/handheld/orientation=1
 
 [dotnet]
 
@@ -21,3 +35,4 @@ project/assembly_name="CubGem"
 [rendering]
 
 renderer/rendering_method="mobile"
+environment/defaults/default_clear_color=Color(0.125911, 0.125911, 0.125911, 1)
