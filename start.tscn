@@ -1,8 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://b85ffsxu62oh5"]
+[gd_scene load_steps=5 format=3 uid="uid://b85ffsxu62oh5"]
 
-[ext_resource type="Texture2D" uid="uid://e4ygffamfx5f" path="res://images/indonov33.jpg" id="1_lfect"]
+[ext_resource type="Texture2D" uid="uid://cipugfd6g3s2b" path="res://images/background.png" id="1_patdb"]
+[ext_resource type="Texture2D" uid="uid://c4e8r2xdjish4" path="res://images/desk_board.png" id="2_en1b2"]
+[ext_resource type="Texture2D" uid="uid://bq4jwd1wb7mhd" path="res://images/new_game.png" id="3_0562u"]
+[ext_resource type="Script" path="res://NewGame_Button.cs" id="4_8bwgd"]
 
-[node name="Indonov33" type="Sprite2D"]
-position = Vector2(603, 589)
-scale = Vector2(0.289537, 0.302303)
-texture = ExtResource("1_lfect")
+[node name="Background" type="TextureRect"]
+offset_right = 1600.0
+offset_bottom = 1600.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_patdb")
+expand_mode = 3
+stretch_mode = 1
+
+[node name="Deskboard" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 258.0
+offset_top = 252.0
+offset_right = 739.0
+offset_bottom = 828.0
+texture = ExtResource("2_en1b2")
+
+[node name="TextureButton" type="TextureButton" parent="Deskboard"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 110.0
+offset_right = 390.0
+offset_bottom = 210.0
+pivot_offset = Vector2(150, 50)
+texture_normal = ExtResource("3_0562u")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("4_8bwgd")
+
+[connection signal="button_down" from="Deskboard/TextureButton" to="Deskboard/TextureButton" method="_on_button_down"]
+[connection signal="button_up" from="Deskboard/TextureButton" to="Deskboard/TextureButton" method="_on_button_up"]
+[connection signal="pressed" from="Deskboard/TextureButton" to="Deskboard/TextureButton" method="_on_pressed"]
